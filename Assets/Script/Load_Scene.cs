@@ -19,6 +19,6 @@ public class Load_Scene : MonoBehaviour
     public void LoadingTitle()
     {
         SceneManager.LoadScene("Title");
-        Timer.score = 0;
+        Score.score = 0;
     }
 }

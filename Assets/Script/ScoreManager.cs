@@ -44,7 +44,7 @@ public class ScoreManager : MonoBehaviour
     {
         for (i = 0; i < RANK; i++)
         {
-            if (ranking[i].score < Timer.score)
+            if (ranking[i].score < scorevalue)
             {
                 for (int j = RANK-1; j > i; j--)
                 {
@@ -81,7 +81,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (isScore)
         {
-            scorevalue = Timer.score;       //ちゃんとしたスコアに書き換える
+            scorevalue = (int)Score.score;       //ちゃんとしたスコアに書き換える
             SetScore();
             isScore = false;
         }

@@ -7,7 +7,7 @@ public class Meter_Distance : MonoBehaviour
 {
     private Slider slider = null;
     public Image Background;
-    public float EnemyDistance = 50f;
+    private float EnemyDistance;
 
     //別のスクリプトから変数を受け取って変更
     //private float playerSpead;  
