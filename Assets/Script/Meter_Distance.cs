@@ -7,11 +7,13 @@ public class Meter_Distance : MonoBehaviour
 {
     private Slider slider = null;
     public Image Background;
-    private float enemyDistance;
+    public float EnemyDistance = 50f;
 
-    private float playerSpead;
+    //別のスクリプトから変数を受け取って変更
+    private float playerSpead;  
     private float enemySpead;
 
+    //距離によってメータの色が変わる変数
     void ColorChange()
     {
         float persent = slider.value / slider.maxValue;
@@ -34,14 +36,15 @@ public class Meter_Distance : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
+        //仮置き　変更部分
         playerSpead = Random.Range(55f, 100f);
         enemySpead = Random.Range(0f, 50f);
-        enemyDistance = playerSpead - enemySpead;
 
-        slider.value = slider.maxValue - enemyDistance;
+        EnemyDistance += playerSpead - enemySpead;
+
+        slider.value = slider.maxValue - EnemyDistance;
         ColorChange();
     }
 }

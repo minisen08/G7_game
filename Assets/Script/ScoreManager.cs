@@ -81,7 +81,7 @@ public class ScoreManager : MonoBehaviour
     {
         if (isScore)
         {
-            scorevalue = Timer.score;
+            scorevalue = Timer.score;       //ÇøÇ·ÇÒÇ∆ÇµÇΩÉXÉRÉAÇ…èëÇ´ä∑Ç¶ÇÈ
             SetScore();
             isScore = false;
         }
