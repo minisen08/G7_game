@@ -7,7 +7,7 @@ using System.Runtime.ConstrainedExecution;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PlayerMove : MonoBehaviour
+public class Player_Move : MonoBehaviour
 {
     /*=====================================
      •Ï”‚ğg‚¤Û‚ÍA•Ï”‚Ìˆê•¶š–Ú‚ğ‘å•¶š‚É‚µ‚Ä‚­‚¾‚³‚¢
