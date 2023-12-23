@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Meter_Distance : MonoBehaviour
 {
@@ -44,9 +45,14 @@ public class Meter_Distance : MonoBehaviour
        // enemySpead = Random.Range(0f, 50f);
 
         //EnemyDistance += playerSpead - enemySpead;
-        EnemyDistance = Player_Move.EnemyDistance/50;
+        EnemyDistance = Player_Move.EnemyDistance/10;
 
         slider.value = slider.maxValue - EnemyDistance;
         ColorChange();
+
+        if (slider.value == slider.maxValue)
+        {
+            SceneManager.LoadScene("Result");
+        }
     }
 }

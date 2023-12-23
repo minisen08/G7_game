@@ -17,7 +17,7 @@ public class Player_Move : MonoBehaviour
     //各種変数
     private static float playerSpead = 0;
     private static float enemySpead = 0;
-    private static float enemyDistance = 500;
+    private static float enemyDistance = 300;
     private static float playerPos = 0;
 
     //Geter
@@ -39,10 +39,10 @@ public class Player_Move : MonoBehaviour
     }
 
     //定数(バランス調整用)
-    private const float ENEMY_ACCEL = 0.05f;
+    private const float ENEMY_ACCEL = 2.5f;
     private const float TIME_CONST = 60;
     private const float PLAYER_ACCEL = 1000;
-    private const float PLAYER_DECEL = 0.1f;
+    private const float PLAYER_DECEL = 30f;
     private const float PLAYER_DECEL_ASSIST = 100;
 
     //プログラム実行用
@@ -58,10 +58,10 @@ public class Player_Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemySpead += ENEMY_ACCEL;
-        enemyDistance += playerSpead - enemySpead;
+        enemySpead += ENEMY_ACCEL * Time.deltaTime;
+        enemyDistance += playerSpead * Time.deltaTime - enemySpead * Time.deltaTime;
         playerPos += playerSpead / TIME_CONST;
-        playerSpead -= PLAYER_DECEL;
+        playerSpead -= PLAYER_DECEL * Time.deltaTime;
         if (playerSpead < 0.1)
         {
             playerSpead = 0.0f;
