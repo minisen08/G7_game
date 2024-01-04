@@ -16,20 +16,20 @@ public class CountdownTimer : MonoBehaviour
 
 	void Update()
 	{
-		if(countdown > 0)
+		if(countdown > 1)
 		{
 			countdown -= Time.deltaTime;
 			count = (int)countdown;
 			CountText.text = count.ToString();
 		}
 
-        if (countdown <= 0 && countdown > -1)
+        if (countdown <= 1 && countdown > 0)
         {
 			CountText.text = "START";
 			countdown -= Time.deltaTime;
 		}
 		
-		if(countdown <=-1)
+		if(countdown <=0)
 		{
 			CountText.text = "";
 		}
