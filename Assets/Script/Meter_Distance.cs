@@ -44,7 +44,7 @@ public class Meter_Distance : MonoBehaviour
 
         if (slider.value == slider.maxValue)
         {
-            SceneManager.LoadScene("Result");
+            //SceneManager.LoadScene("Result");
         }
     }
 }
