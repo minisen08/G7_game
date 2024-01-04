@@ -5,7 +5,7 @@ using UnityEngine;
 public class BackGround_Move : MonoBehaviour
 {
     private float speed;
-    private float velocity = 20f;
+    private float velocity = 0f;
     private Player_Move Player_Move;
 
     
