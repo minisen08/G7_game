@@ -50,8 +50,13 @@ public class Player_Move : MonoBehaviour
     private const float PLAYER_DECEL_ASSIST = 100;
 
     //プログラム実行用
-    private static string lastButton = "default";
+    public static string lastButton = "default";
     public static string finish = "false";
+
+    public GameObject Seed;
+
+    public AudioClip[] sound;
+    AudioSource audioSource;
 
 
     // Start is called before the first frame update
@@ -64,6 +69,7 @@ public class Player_Move : MonoBehaviour
         lastButton = "default";
         finish = "false";
         resultTime = 3f;
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -94,15 +100,22 @@ public class Player_Move : MonoBehaviour
             }
             if (Input.GetKeyDown(KeyCode.Space)&&lastButton.Equals("default"))
             {
+                audioSource.PlayOneShot(sound[0]);
                 Score.score += 100;
+                for(int i = 0; i < 3; i++)
+                {
+                    GameObject seed = Instantiate(Seed,new Vector3(0,0,-1),Quaternion.identity);
+                }
             }
             if (enemyDistance <= 0)
             {
+                audioSource.PlayOneShot(sound[1]);
                 finish = "gameOver";
                 Score.score = 0;
             }
             if (playerPos > 5000)
             {
+                audioSource.PlayOneShot(sound[2]);
                 finish = "clear";
             }
         }
