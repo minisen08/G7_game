@@ -5,7 +5,7 @@ using UnityEngine;
 public class BackGround_Move : MonoBehaviour
 {
     private float speed;
-    private float velocity = 0f;
+    public float velocity = 0f;
     private Player_Move Player_Move;
 
     
@@ -23,7 +23,7 @@ public class BackGround_Move : MonoBehaviour
 
         if (this.transform.position.x <= -52)
         {
-            transform.position = new Vector3(114, 0.4f, 0);
+            transform.position = new Vector3(118, 0.4f, 0);
         }
 
     }
