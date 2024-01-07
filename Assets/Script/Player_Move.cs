@@ -104,7 +104,7 @@ public class Player_Move : MonoBehaviour
                 Score.score += 100;
                 for(int i = 0; i < 3; i++)
                 {
-                    GameObject seed = Instantiate(Seed,new Vector3(0,0,-1),Quaternion.identity);
+                    GameObject seed = Instantiate(Seed,new Vector3(2f,-1f,-1),Quaternion.identity);
                 }
             }
             if (enemyDistance <= 0)

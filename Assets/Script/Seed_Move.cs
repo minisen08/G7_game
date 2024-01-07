@@ -11,9 +11,9 @@ public class Seed_Move : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        spX = Random.Range(-0.05f,-0.01f);
-        spY = Random.Range(0.01f, 0.05f);
-        time = 3f;
+        spX = Random.Range(-0.08f,-0.01f);
+        spY = Random.Range(0.03f, 0.06f);
+        time = 1f;
     }
 
     // Update is called once per frame
@@ -22,7 +22,18 @@ public class Seed_Move : MonoBehaviour
         float x, y;
         x = this.transform.position.x + spX;
         spY -= 0.001f;
-        y = this.transform.position.y + spY;
+        if (this.transform.position.y < -3f)
+        {
+
+            spY = spY * -0.5f;
+            spX = spX * 0.8f;
+            y = -3f + spY;
+        }
+        else
+        {
+            y = this.transform.position.y + spY;
+
+        }
         this.transform.position = new Vector3(x,y, this.transform.position.z);
         time -= Time.deltaTime;
         if (time<=0)

@@ -8,33 +8,40 @@ public class CountdownTimer : MonoBehaviour
 {
 	public TextMeshProUGUI CountText;
 	public float countdown = 4f;
-	private int count;
+	private static int count = 4;
 	public static bool gameStart = false;
 
-	void Start()
+    public AudioClip[] sound;
+    AudioSource audioSource;
+
+    void Start()
 	{
 		gameStart = false;
-	}
+        audioSource = GetComponent<AudioSource>();
+    }
 
 	void Update()
 	{
-        if (!gameStart)
+        if (count >= 0)
         {
-            if (countdown > 1)
+            countdown -= Time.deltaTime;
+            if(count != (int)countdown)
             {
-                countdown -= Time.deltaTime;
                 count = (int)countdown;
-                CountText.text = count.ToString();
-            }
-            else if (countdown > 0)
-            {
-                CountText.text = "START";
-                countdown -= Time.deltaTime;
-            }
-            else
-            {
-                CountText.text = "";
-                gameStart = true;
+                if (count > 0)
+                {
+                    CountText.text = count.ToString();
+                    audioSource.PlayOneShot(sound[0]);
+                } else if(count == 0)
+                {
+                    CountText.text = "START";
+                    gameStart = true;
+                    audioSource.PlayOneShot(sound[1]);
+                }
+                else
+                {
+                    CountText.text = "";
+                }
             }
         }
         else
