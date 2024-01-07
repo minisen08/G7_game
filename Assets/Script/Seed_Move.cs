@@ -22,7 +22,7 @@ public class Seed_Move : MonoBehaviour
         float x, y;
         x = this.transform.position.x + spX;
         spY -= 0.001f;
-        if (this.transform.position.y < -3f)
+        if (this.transform.position.y < -4f)
         {
 
             spY = spY * -0.5f;

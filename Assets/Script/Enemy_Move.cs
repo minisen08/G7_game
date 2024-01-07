@@ -18,7 +18,7 @@ public class Enemy_Move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        enemyPos.x = (Player.transform.position.x - 1)-Player_Move.EnemyDistance / 30;
+        enemyPos.x = (Player.transform.position.x - 5f)-Player_Move.EnemyDistance / 30;
         transform.position = new Vector3(enemyPos.x,enemyPos.y , 0);
 
     }
